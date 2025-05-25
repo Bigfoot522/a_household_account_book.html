@@ -1,0 +1,37 @@
+<!-- keep a finantial ledger(재정적인 장부 = 가계부) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가계부 작성</title>
+</head>
+<body>
+  <div>
+    <label for="nickname">통장별명</label>
+    <select id="nickname">
+      <option disabled hidden selected>선택</option>
+    </select>
+  </div>
+  <div>
+    <label for="income-expenses">수입'지출</label>
+    <select name="income-expenses" id="income-expenses">
+      <option disabled hidden selected>선택</option>
+      <option value="income"> 수입
+      <option value="expense"> 지출
+    </select>
+  </div>
+  <div>
+    <label for="amount">금액</label>
+    <input name="amount" id="amount" step="1000" placeholder="금액를 입력하세요.">
+    </select>
+  </div>
+  
+  <button onclick="resister_IE()">추가</button>
+
+  <script src="keepFL.js"></script>
+
+</body>
+</html>

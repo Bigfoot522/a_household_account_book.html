@@ -1,0 +1,54 @@
+<!-- resister account -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>통장등록</title>
+  <link rel="stylesheet" href="./resisterAccount.css">
+</head>
+<body>
+  <!-- hidden은 서버로 전송할 때만 -->
+  <input type="hidden" id="Hbank" value="">
+  <input type="hidden" id="Hnickname" value="">
+  <input type="hidden" id="Hbalance" value="">
+
+  <!-- action은 정보 전송할 위치 -->
+  <form action="">
+    <div>
+      <label for="bank">은행</label> <!-- for은 가져올 요소 id를 지칭함 -->
+      <select name="bank" id="bank">
+        <option value="select" disabled hidden selected>선택</option>
+        <option value="NH"> 농협
+        <option value="KAKAO"> 카카오
+        <option value="KB"> 국민
+        <option value="TOSS"> 토스
+        <option value="WOORI"> 우리
+        <option value="IBK"> IBK기업
+        <option value="HANA"> 하나
+        <option value="SHINHYUP"> 신협
+        <option value="MG"> 새마을
+        <option value="CASH"> 현금
+        <option value="ETC"> 기타
+      </select>
+    </div>
+    <div>
+      <label for="nickname">통장별명</label>
+      <input type="text" name="nickname" id="nickname" placeholder="통장별명을 설정해주세요">
+    </div>
+    <div>
+      <label for="balance">잔고</label> <!--잔고 - bank account balance-->
+      <input type="number" name="balance" id="balance" step="1000" placeholder="잔고를 입력하세요.">
+    </div>
+  </form>
+
+  <button onclick="resister_account()">추가</button>
+
+  <div id="accountList"></div>
+
+  <script src="resisterAccount.js"></script>
+
+</body>
+</html>
