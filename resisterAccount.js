@@ -59,5 +59,6 @@ function delete_account(index) {
     display_accounts(); // 목록 새로고침
 }
 
-// 페이지 로드 시 상품 목록 출력
-window.onload = display_accounts;
+window.onload = function () {
+  display_accounts;
+};

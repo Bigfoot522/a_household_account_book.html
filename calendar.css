@@ -1,0 +1,10 @@
+/* body {display: flex; justify-content: center;} */
+/* header {display: flex;} */
+
+.aDay {border: 1px solid black;}
+.calWrapper {display: grid; grid-template-columns: repeat(7, 1fr); gap:10px;}
+.preDate, .nextDate {color: gray;}
+.weeks {display: flex;}
+
+/* #calendar {display: flex;} */
+#today {color: blue;}
