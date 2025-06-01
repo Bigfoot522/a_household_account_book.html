@@ -8,8 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>통장등록</title>
   <link rel="stylesheet" href="./resisterAccount.css">
+  <link rel="stylesheet" href="./navBar.css">
 </head>
 <body>
+  <!-- 네비 바 -->
+  <nav class="navbar">
+    <div class="home">
+      <a href="./moneySave.html">home</a>
+    </div>
+    <ul class="menu">
+      <li><a href="./resisterAccount.html">통장관리</a></li>
+      <li><a href="./keepFL.html">가계부 작성</a></li>
+      <li><a href="./calendar.html">가계달력</a></li>
+    </ul>
+  </nav>
+
   <!-- hidden은 서버로 전송할 때만 -->
   <input type="hidden" id="Hbank" value="">
   <input type="hidden" id="Hnickname" value="">
@@ -21,17 +34,17 @@
       <label for="bank">은행</label> <!-- for은 가져올 요소 id를 지칭함 -->
       <select name="bank" id="bank">
         <option value="select" disabled hidden selected>선택</option>
-        <option value="NH"> 농협
-        <option value="KAKAO"> 카카오
-        <option value="KB"> 국민
-        <option value="TOSS"> 토스
-        <option value="WOORI"> 우리
-        <option value="IBK"> IBK기업
-        <option value="HANA"> 하나
-        <option value="SHINHYUP"> 신협
-        <option value="MG"> 새마을
-        <option value="CASH"> 현금
-        <option value="ETC"> 기타
+        <option value="NH">농협</option>
+        <option value="KAKAO">카카오</option>
+        <option value="KB">국민</option>
+        <option value="TOSS">토스</option>
+        <option value="WOORI">우리</option>
+        <option value="IBK">IBK기업</option>
+        <option value="HANA">하나</option>
+        <option value="SHINHYUP">신협</option>
+        <option value="MG">새마을</option>
+        <option value="CASH">현금</option>
+        <option value="ETC">기타</option>
       </select>
     </div>
     <div>

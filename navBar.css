@@ -1,0 +1,10 @@
+/* 미리 변수로 색상을 지정해놓을 수 있음 */
+:root {
+  --accent-color: #f3ff87;
+  --text-color: #f0f4f5;
+  --background-color: #0b002b;
+}
+  
+/* padding 이나 margin 값은 따로 정해진 root 변수 값이 없다면 4의 배수로 값을 지정하는 것이 좋다고 한다! */
+.body {margin: 0;}
+.navbar {display: flex; justify-content: space-between; align-items:center; padding: 8px 12px;}

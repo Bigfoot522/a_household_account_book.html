@@ -1,3 +1,5 @@
+let dailySummary = JSON.parse(localStorage.getItem("dailySummary")) || [];
+
 let month = document.getElementById("this-month");
 let calendarBox = document.getElementById("calendar");
 
@@ -55,6 +57,8 @@ function printCalendar(y, m) {
   var dNum = 1;
   for (var i = 1; i <= row; i++) {
     for (var j = 1; j <= 7; j++) {   //열 생성
+      var inEx = 1;
+
       //앞 공란
       if (i == 1 && j < theDay) {
         var preDate = last[currentMonth] - theDay + j // 지난달 마지막 날에서 이번달 첫날 빼고 요일 더하기
@@ -74,11 +78,13 @@ function printCalendar(y, m) {
         if (dNum === printD && printM === currentMonth) {
           calendar += "<div class='aDay'>"
           calendar += "<p id='today'>" + dNum + "</p>";
+          if (inEx) calendar += "<p class='inEx'> + " + inEx + "</p>";
           calendar += "</div>"
         }
         else {
           calendar += "<div class='aDay'>"
-          calendar += "<p>" + dNum + "</p>";
+          calendar += "<p class='date'>" + dNum + "</p>";
+          if (inEx) calendar += "<p class='inEx'> + " + inEx + "</p>";
           calendar += "</div>"
         }
         dNum++;

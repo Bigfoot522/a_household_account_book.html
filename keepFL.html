@@ -7,20 +7,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>가계부 작성</title>
+  <link rel="stylesheet" href="./navBar.css">
 </head>
 <body>
+  <!-- 네비 바 -->
+  <nav class="navbar">
+    <div class="home">
+      <a href="./moneySave.html">home</a>
+    </div>
+    <ul class="menu">
+      <li><a href="./resisterAccount.html">통장관리</a></li>
+      <li><a href="./keepFL.html">가계부 작성</a></li>
+      <li><a href="./calendar.html">가계달력</a></li>
+    </ul>
+  </nav>
+
   <div>
     <label for="nickname">통장별명</label>
     <select id="nickname">
-      <option disabled hidden selected>선택</option>
+      <option value="select" disabled hidden selected>선택</option>
     </select>
   </div>
   <div>
     <label for="income-expenses">수입'지출</label>
     <select name="income-expenses" id="income-expenses">
-      <option disabled hidden selected>선택</option>
-      <option value="income"> 수입
-      <option value="expense"> 지출
+      <option value="select" disabled hidden selected>선택</option>
+      <option value="income">수입</option>
+      <option value="expense">지출</option>
     </select>
   </div>
   <div>
@@ -30,6 +43,10 @@
   </div>
   
   <button onclick="resister_IE()">추가</button>
+
+  <div id="historyList"></div>
+
+  <div id="total"></div>
 
   <script src="keepFL.js"></script>
 

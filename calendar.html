@@ -6,13 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>달력보기</title>
   <link rel="stylesheet" href="./calendar.css">
+  <link rel="stylesheet" href="./navBar.css">
 </head>
 <body>
+  <!-- 네비 바 -->
+  <nav class="navbar">
+    <div class="home">
+      <a href="./moneySave.html">home</a>
+    </div>
+    <ul class="menu">
+      <li><a href="./resisterAccount.html">통장관리</a></li>
+      <li><a href="./keepFL.html">가계부 작성</a></li>
+      <li><a href="./calendar.html">가계달력</a></li>
+    </ul>
+  </nav>
+
   <div class="wrapper">
     <header>
-      <button type="button" id="monthPrev" class="monthMove" data-ym="2022-04-01"> < </button>
+      <button type="button" id="monthPrev" class="monthMove" data-ym="2022-04-01"> &lt; </button>
       <span id="this-month"></span>
-      <button type="button" id="monthNext" class="monthMove" data-ym="2022-06-01"> > </button>
+      <button type="button" id="monthNext" class="monthMove" data-ym="2022-06-01"> &gt; </button>
     </header>
     <div id="calendar"></div>
   </div>

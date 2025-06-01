@@ -1,9 +1,9 @@
 /* body {display: flex; justify-content: center;} */
 /* header {display: flex;} */
 
-.aDay {border: 1px solid black;}
+.aDay {height: 150px; border: 1px solid black; padding: 10px;}
 .calWrapper {display: grid; grid-template-columns: repeat(7, 1fr); gap:10px;}
-.preDate, .nextDate {color: gray;}
+#today, .preDate, .nextDate, .date{font-size: 20px; color: gray; margin: 0px;}
 .weeks {display: flex;}
 
 /* #calendar {display: flex;} */

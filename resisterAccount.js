@@ -11,7 +11,6 @@ function resister_account() {
     return;
   }
 
-  
   const account = {
     bank: bank,
     nickname: nickname,
@@ -19,7 +18,6 @@ function resister_account() {
   };
 
   accounts.push(account);
-
   localStorage.setItem("accounts", JSON.stringify(accounts));
 
   document.getElementById("bank").value = "select";
@@ -35,7 +33,7 @@ function display_accounts() {
   accountList.innerHTML = "<h2>통장 목록</h2>";
 
   if (accounts.length === 0) {
-    accountList.innerHTML += "<p>저장된 상품이 없습니다.</p>";
+    accountList.innerHTML += "<p>등록된 통장이 없습니다.</p>";
     return;
   }
 
@@ -60,5 +58,5 @@ function delete_account(index) {
 }
 
 window.onload = function () {
-  display_accounts;
+  display_accounts();
 };
