@@ -1,6 +1,6 @@
 let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 let histories = JSON.parse(localStorage.getItem("histories")) || [];
-let dailySummary = JSON.parse(localStorage.getItem("dailySummary")) || [];
+let dailySummary = JSON.parse(localStorage.getItem("dailySummary")) || {};
 
 const currentDate = new Date().toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 저장
 
@@ -42,7 +42,7 @@ function resister_IE() {
 
   histories.push(history); // 배열에 추가
   localStorage.setItem("histories", JSON.stringify(histories)); //로컬 저장소에 배열 저장
-  day_IE(history); // 일일 입출금 내역 관리
+  day_IE(); // 일일 입출금 내역 관리
 
   document.getElementById("amount").value = "";
 
@@ -51,18 +51,19 @@ function resister_IE() {
 
 // 거래내역 출력
 function display_histories() {
-  const historyList = document.getElementById("historyList");
-  historyList.innerHTML = "<h2>입출금 내역</h2>";
+  const content = document.getElementById("content");
+
+  content.innerHTML = "";
 
   if (histories.length === 0) {
-    historyList.innerHTML += "<p>오늘의 입출금 내역을 입력해주세요.</p>";
+    content.innerHTML += "<p>오늘의 입출금 내역을 입력해주세요.</p>";
     return;
   }
-
+  
   histories.forEach((history, index) => {
     const incomeExpense = (history.incomeExpense === "income") ? "수입" : "지출";
     
-    historyList.innerHTML += `
+    content.innerHTML += `
       <div class="historyList">
         <p>${history.nickname}</p>
         <p>` + incomeExpense + `</p>
@@ -78,12 +79,20 @@ function delete_history(index) {
   histories.splice(index, 1); 
   localStorage.setItem("histories", JSON.stringify(histories)); // 로컬 스토리지 업데이트
   display_histories(); // 목록 새로고침
+
   day_IE();
 }
 
 // 일일 입출금 정보 저장
 function day_IE() {
-  dailySummary[currentDate] = { income: 0, expense: 0, total: 0 };
+  if (!dailySummary[currentDate]) {
+    dailySummary[currentDate] = { income: 0, expense: 0, total: 0 };
+  } else {
+    // 이미 존재하면 값만 리셋
+    dailySummary[currentDate].income = 0;
+    dailySummary[currentDate].expense = 0;
+    dailySummary[currentDate].total = 0;
+  }
 
   histories.forEach((history) => {
     (history.incomeExpense === "income") ? dailySummary[currentDate].income += Number(history.amount) : dailySummary[currentDate].expense += Number(history.amount);
@@ -91,7 +100,7 @@ function day_IE() {
   });
 
   localStorage.setItem("dailySummary", JSON.stringify(dailySummary));
-  
+
   display_total();
 }
 

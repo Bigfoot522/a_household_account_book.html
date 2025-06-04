@@ -29,17 +29,17 @@ function resister_account() {
 
 // 목록 초기화
 function display_accounts() {
-  const accountList = document.getElementById("accountList");
-  accountList.innerHTML = "<h2>통장 목록</h2>";
+  const content = document.getElementById("content");
+  content.innerHTML = "<h2>통장 목록</h2>";
 
   if (accounts.length === 0) {
-    accountList.innerHTML += "<p>등록된 통장이 없습니다.</p>";
+    content.innerHTML += "<p>등록된 통장이 없습니다.</p>";
     return;
   }
 
   // 각 통장을 HTML로 렌더링
   accounts.forEach((account, index) => {
-    accountList.innerHTML += `
+    content.innerHTML += `
       <div class="accountList">
         <p>${account.bank}</p>
         <p>${account.nickname}</p>

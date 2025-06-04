@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>가계부 작성</title>
+  <link rel="stylesheet" href="./keepFL.css">
   <link rel="stylesheet" href="./navBar.css">
 </head>
 <body>
@@ -22,31 +23,38 @@
     </ul>
   </nav>
 
-  <div>
-    <label for="nickname">통장별명</label>
-    <select id="nickname">
-      <option value="select" disabled hidden selected>선택</option>
-    </select>
-  </div>
-  <div>
-    <label for="income-expenses">수입'지출</label>
-    <select name="income-expenses" id="income-expenses">
-      <option value="select" disabled hidden selected>선택</option>
-      <option value="income">수입</option>
-      <option value="expense">지출</option>
-    </select>
-  </div>
-  <div>
-    <label for="amount">금액</label>
-    <input name="amount" id="amount" step="1000" placeholder="금액를 입력하세요.">
-    </select>
-  </div>
-  
-  <button onclick="resister_IE()">추가</button>
+  <header>
+    <div class="resister">
+      <div class="resisterElement">
+        <label for="nickname">통장별명</label>
+        <select id="nickname">
+          <option value="select" disabled hidden selected>선택</option>
+        </select>
+      </div>
+      <div class="resisterElement">
+        <label for="income-expenses">수입'지출</label>
+        <select name="income-expenses" id="income-expenses">
+          <option value="select" disabled hidden selected>선택</option>
+          <option value="income">수입</option>
+          <option value="expense">지출</option>
+        </select>
+      </div>
+      <div class="resisterElement">
+        <label for="amount">금액</label>
+        <input name="amount" id="amount" step="1000" placeholder="금액를 입력하세요.">
+      </div>
+      <button onclick="resister_IE()">추가</button>
+    </div>
+    <hr>
+  </header>
 
-  <div id="historyList"></div>
+  <h2>입출금 내역</h2>
+  <div id="content"></div>
 
-  <div id="total"></div>
+  <footer>
+    <hr>
+    <div id="total"></div>
+  </footer>
 
   <script src="keepFL.js"></script>
 

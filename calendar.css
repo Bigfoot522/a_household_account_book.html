@@ -1,10 +1,57 @@
-/* body {display: flex; justify-content: center;} */
-/* header {display: flex;} */
+* {
+  box-sizing: border-box;
+}
 
-.aDay {height: 150px; border: 1px solid black; padding: 10px;}
-.calWrapper {display: grid; grid-template-columns: repeat(7, 1fr); gap:10px;}
-#today, .preDate, .nextDate, .date{font-size: 20px; color: gray; margin: 0px;}
-.weeks {display: flex;}
+header {
+  display: flex;
+  justify-content: space-between;
+}
 
-/* #calendar {display: flex;} */
+/* 요일(smtwtfs) wrapper */
+.calWrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  max-width: 1200px;
+  gap:30px;
+  justify-items: center;
+}
+
+/* 달력 날짜 관련 */
+.aDay {
+  aspect-ratio: 1/1;
+  border: 1px solid black;
+  width: 100%;
+  max-width: 230px;
+  padding: 10px;
+}
+
+.date {
+  font-size: 20px;
+  margin: 0px;
+}
+
+.dateTotalIncome {
+  font-size: 18px;
+  color: blue;
+  margin: 0px;
+}
+
+.dateTotalExpense {
+  font-size: 18px;
+  color: red;
+  margin: 0px;
+}
+
+#today, .preDate, .nextDate {
+  font-size: 20px;
+  color: gray;
+  margin: 0px;
+}
+
+#calendar {
+  display: flex;
+  justify-content: center;
+}
+
 #today {color: blue;}

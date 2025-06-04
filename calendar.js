@@ -1,4 +1,4 @@
-let dailySummary = JSON.parse(localStorage.getItem("dailySummary")) || [];
+let dailySummary = JSON.parse(localStorage.getItem("dailySummary")) || {};
 
 let month = document.getElementById("this-month");
 let calendarBox = document.getElementById("calendar");
@@ -55,9 +55,10 @@ function printCalendar(y, m) {
   calendar += "<h4>S</h4>";
 
   var dNum = 1;
+  m += 1;
+  
   for (var i = 1; i <= row; i++) {
     for (var j = 1; j <= 7; j++) {   //열 생성
-      var inEx = 1;
 
       //앞 공란
       if (i == 1 && j < theDay) {
@@ -74,17 +75,24 @@ function printCalendar(y, m) {
         dNum++;
       }
       else {
+        let zeroM = String(m).padStart(2, '0');
+        let zeroD = String(dNum).padStart(2, '0');
+        let currentDate = `${y}-${zeroM}-${zeroD}`;
+
+        if (dailySummary[currentDate]) var dateTotal = dailySummary[currentDate].total;
+        else var dateTotal = null;
+
         //오늘 날짜
         if (dNum === printD && printM === currentMonth) {
           calendar += "<div class='aDay'>"
           calendar += "<p id='today'>" + dNum + "</p>";
-          if (inEx) calendar += "<p class='inEx'> + " + inEx + "</p>";
+          if (dateTotal) (dateTotal > 0) ? calendar += "<p class='dateTotalIncome'> + " + dateTotal + "</p>" : calendar += "<p class='dateTotalExpense'> - " + dateTotal + "</p>"
           calendar += "</div>"
         }
         else {
           calendar += "<div class='aDay'>"
           calendar += "<p class='date'>" + dNum + "</p>";
-          if (inEx) calendar += "<p class='inEx'> + " + inEx + "</p>";
+          if (dateTotal) (dateTotal > 0) ? calendar += "<p class='dateTotalIncome'> + " + dateTotal + "</p>" : calendar += "<p class='dateTotalExpense'> - " + dateTotal + "</p>"
           calendar += "</div>"
         }
         dNum++;

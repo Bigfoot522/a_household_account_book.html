@@ -1,3 +1,10 @@
-.accountList {
+.resister, .accountList {
   display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+.resisterElement {
+  display: flex;
+  flex-direction: column;
 }

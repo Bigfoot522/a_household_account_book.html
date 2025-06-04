@@ -28,38 +28,41 @@
   <input type="hidden" id="Hnickname" value="">
   <input type="hidden" id="Hbalance" value="">
 
-  <!-- action은 정보 전송할 위치 -->
-  <form action="">
-    <div>
-      <label for="bank">은행</label> <!-- for은 가져올 요소 id를 지칭함 -->
-      <select name="bank" id="bank">
-        <option value="select" disabled hidden selected>선택</option>
-        <option value="NH">농협</option>
-        <option value="KAKAO">카카오</option>
-        <option value="KB">국민</option>
-        <option value="TOSS">토스</option>
-        <option value="WOORI">우리</option>
-        <option value="IBK">IBK기업</option>
-        <option value="HANA">하나</option>
-        <option value="SHINHYUP">신협</option>
-        <option value="MG">새마을</option>
-        <option value="CASH">현금</option>
-        <option value="ETC">기타</option>
-      </select>
-    </div>
-    <div>
-      <label for="nickname">통장별명</label>
-      <input type="text" name="nickname" id="nickname" placeholder="통장별명을 설정해주세요">
-    </div>
-    <div>
-      <label for="balance">잔고</label> <!--잔고 - bank account balance-->
-      <input type="number" name="balance" id="balance" step="1000" placeholder="잔고를 입력하세요.">
-    </div>
-  </form>
+  <header>
+    <!-- action은 정보 전송할 위치 -->
+    <form action="" class="resister">
+      <div class="resisterElement">
+        <label for="bank">은행</label> <!-- for은 가져올 요소 id를 지칭함 -->
+        <select name="bank" id="bank">
+          <option value="select" disabled hidden selected>선택</option>
+          <option value="NH">농협</option>
+          <option value="KAKAO">카카오</option>
+          <option value="KB">국민</option>
+          <option value="TOSS">토스</option>
+          <option value="WOORI">우리</option>
+          <option value="IBK">IBK기업</option>
+          <option value="HANA">하나</option>
+          <option value="SHINHYUP">신협</option>
+          <option value="MG">새마을</option>
+          <option value="CASH">현금</option>
+          <option value="ETC">기타</option>
+        </select>
+      </div>
+      <div class="resisterElement">
+        <label for="nickname">통장별명</label>
+        <input type="text" name="nickname" id="nickname" placeholder="통장별명을 설정해주세요">
+      </div>
+      <div class="resisterElement">
+        <label for="balance">잔고</label> <!--잔고 - bank account balance-->
+        <input type="number" name="balance" id="balance" step="1000" placeholder="잔고를 입력하세요.">
+      </div>
+    <button onclick="resister_account()">추가</button>
+    </form>
 
-  <button onclick="resister_account()">추가</button>
+    <hr>
+  </header>
 
-  <div id="accountList"></div>
+  <div id="content"></div>
 
   <script src="resisterAccount.js"></script>
 
