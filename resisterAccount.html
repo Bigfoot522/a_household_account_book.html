@@ -18,8 +18,9 @@
     </div>
     <ul class="menu">
       <li><a href="./resisterAccount.html">통장관리</a></li>
-      <li><a href="./keepFL.html">가계부 작성</a></li>
+      <li><a href="./keepFL.html" onclick="date_init()">가계부 작성</a></li>
       <li><a href="./calendar.html">가계달력</a></li>
+      <li><a href="./statistics.html" onclick="year_init()">통계보기</a></li>
     </ul>
   </nav>
 
@@ -62,9 +63,20 @@
     <hr>
   </header>
 
+  <h2>통장 목록</h2>
   <div id="content"></div>
 
   <script src="resisterAccount.js"></script>
+
+  <script>
+    function date_init() {
+      localStorage.removeItem("date");
+    }
+
+    function year_init() {
+      localStorage.removeItem("year");
+    }
+  </script>
 
 </body>
 </html>

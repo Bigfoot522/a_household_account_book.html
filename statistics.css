@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+}
+
+.month-bar {
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  width: 40px;
+  text-align: center;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  margin: 2px 0;
+}
+
+.x-axis {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.x-month {
+  width: 40px;
+  text-align: center;
+}
+
+.income {background-color: #3644ff;}
+.expense {background-color: #ff3c3c;}
+.total {background-color: #4CAF50;}
+
+.label {
+  width: 40px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+#yearControl {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+#chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  height: 90%;
+  width: 80%;
+  border-left: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px;
+}

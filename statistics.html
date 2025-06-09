@@ -1,0 +1,60 @@
+<!-- statistics - 통계 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>통계보기</title>
+  <link rel="stylesheet" href="./statistics.css">
+  <link rel="stylesheet" href="./navBar.css">
+</head>
+<body>
+  <!-- 네비 바 -->
+  <nav class="navbar">
+    <div class="home">
+      <a href="./moneySave.html">home</a>
+    </div>
+    <ul class="menu">
+      <li><a href="./resisterAccount.html">통장관리</a></li>
+      <li><a href="./keepFL.html" onclick="date_init()">가계부 작성</a></li>
+      <li><a href="./calendar.html">가계달력</a></li>
+      <li><a href="./statistics.html" onclick="year_init()">통계보기</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrapper">
+    <div id="yearControl"></div>
+    <div>
+      <button onclick="month_summary('income')">수입</button>
+      <button onclick="month_summary('expense')">지출</button>
+      <button onclick="month_summary('total')">합계</button>
+      <button onclick="month_summary('all')">전체보기</button>
+    </div>
+    <div id="chart"></div>
+    <hr/>
+    <div class="x-axis">
+      <span class="x-month">1월</span>
+      <span class="x-month">2월</span>
+      <span class="x-month">3월</span>
+      <span class="x-month">4월</span>
+      <span class="x-month">5월</span>
+      <span class="x-month">6월</span>
+      <span class="x-month">7월</span>
+      <span class="x-month">8월</span>
+      <span class="x-month">9월</span>
+      <span class="x-month">10월</span>
+      <span class="x-month">11월</span>
+      <span class="x-month">12월</span>
+    </div>
+  </div>
+
+  <script src="statistics.js"></script>
+  
+  <script>
+    function date_init() {
+      localStorage.removeItem("date");
+    }
+  </script>
+
+</body>
+</html>

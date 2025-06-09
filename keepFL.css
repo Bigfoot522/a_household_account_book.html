@@ -1,11 +1,13 @@
-html, body {
-  height: 100%; /* 전체 화면 높이 */
+body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 90vh;
 }
 
-header, footer {
-  flex: 0 0 auto; /* 고정 크기 */
+
+header, .navbar{
+  width: 100%;
 }
 
 footer {
@@ -14,7 +16,6 @@ footer {
   width: 98%;
   background-color: white; /* 배경색 */
   text-align: center;
-  padding: 10px;
   height: 100px;
   /* box-shadow: 0 -2px 5px rgba(0,0,0,0.1); */
 }
@@ -26,7 +27,7 @@ footer {
   align-items: center;
 }
 
-.resister, .historyList {
+.resister, #dateControl{
   display: flex;
   flex: 1;
   justify-content: space-evenly;
@@ -38,11 +39,19 @@ footer {
 }
 
 .historyList {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
 }
 
 #content {
-  flex: 1 1 auto; /* 남은 공간 채우기 */
-  overflow-y: auto; /* 세로 스크롤 */
-  padding: 10px; /* 여백 */
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 65%;
+  overflow-y: auto;
+}
+
+#total {
+  border-top: 1px solid black;
 }

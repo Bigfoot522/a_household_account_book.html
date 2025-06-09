@@ -13,9 +13,20 @@
   <h2>돈 좀 아껴써라!</h2>
   <div class="buttons">
     <a href="./resisterAccount.html">통장등록</a>
-    <a href="./keepFL.html">가계부 작성<a>
+    <a href="./keepFL.html" onclick="date_init()">가계부 작성<a>
     <a href="./calendar.html">달력 보기<a>
-    <a href="./calendar.html">통계 보기</a>
+    <a href="./statistics.html" onclick="year_init()">통계 보기</a>
   </div>
+
+  <script>
+    function date_init() {
+      localStorage.removeItem("date");
+    }
+
+    function year_init() {
+      localStorage.removeItem("year");
+    }
+  </script>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
-let dailySummary = JSON.parse(localStorage.getItem("dailySummary")) || {};
+let date = JSON.parse(localStorage.getItem("date")) || "";
+let dailySummaries = JSON.parse(localStorage.getItem("dailySummary")) || {};
 
 let month = document.getElementById("this-month");
 let calendarBox = document.getElementById("calendar");
@@ -14,7 +15,7 @@ var printM = currentDate.getMonth();
 var printD = currentDate.getDate();
 
 // 상단 월 표시
-function printMonth() {
+function print_month() {
   var monthNames = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -26,7 +27,7 @@ function printMonth() {
 }
 
 // 캘린더 출력
-function printCalendar(y, m) {
+function print_calendar(y, m) {
   //매개변수로 년월을 받으면 적용
   y = (y != undefined) ? y : printY;
   m = (m != undefined) ? m-1 : printM;
@@ -46,31 +47,32 @@ function printCalendar(y, m) {
 
   //요일 행 생성   
   var calendar = "<div class='calWrapper'>";
-  calendar += "<h4>S</h4>";
-  calendar += "<h4>M</h4>";
-  calendar += "<h4>T</h4>";
-  calendar += "<h4>W</h4>";
-  calendar += "<h4>T</h4>";
-  calendar += "<h4>F</h4>";
-  calendar += "<h4>S</h4>";
+  calendar += "<h4>Sun</h4>";
+  calendar += "<h4>Mon</h4>";
+  calendar += "<h4>Tue</h4>";
+  calendar += "<h4>Wed</h4>";
+  calendar += "<h4>Thu</h4>";
+  calendar += "<h4>Fri</h4>";
+  calendar += "<h4>Sat</h4>";
 
   var dNum = 1;
   m += 1;
   
   for (var i = 1; i <= row; i++) {
     for (var j = 1; j <= 7; j++) {   //열 생성
+      var prelast = (printM === 0) ? last[11] : last[printM - 1]
 
       //앞 공란
       if (i == 1 && j < theDay) {
-        var preDate = last[currentMonth] - theDay + j // 지난달 마지막 날에서 이번달 첫날 빼고 요일 더하기
+        var preDate = prelast - theDay + j + 1 // 지난달 마지막 날에서 이번달 첫날 빼고 요일 더하기
         calendar += "<div class='aDay'>"
-        calendar += "<p class='preDate'>" + preDate + "</p>";
+        calendar += `<button class='preDate' onclick="hype_keepFL(${y}, ${m}, ${preDate});">` + preDate + `</button>`;
         calendar += "</div>"
       }
       //뒷 공란
       else if (dNum > lastDate) {
         calendar += "<div class='aDay'>"
-        calendar += "<p class='nextDate'>" + (dNum - lastDate) + "</p>";
+        calendar += `<button class='nextDate' onclick="hype_keepFL(${y}, ${m}, ${dNum - lastDate});">` + (dNum - lastDate) + `</button>`;
         calendar += "</div>"
         dNum++;
       }
@@ -79,20 +81,20 @@ function printCalendar(y, m) {
         let zeroD = String(dNum).padStart(2, '0');
         let currentDate = `${y}-${zeroM}-${zeroD}`;
 
-        if (dailySummary[currentDate]) var dateTotal = dailySummary[currentDate].total;
+        if (dailySummaries[currentDate]) var dateTotal = dailySummaries[currentDate].total;
         else var dateTotal = null;
 
         //오늘 날짜
         if (dNum === printD && printM === currentMonth) {
           calendar += "<div class='aDay'>"
-          calendar += "<p id='today'>" + dNum + "</p>";
-          if (dateTotal) (dateTotal > 0) ? calendar += "<p class='dateTotalIncome'> + " + dateTotal + "</p>" : calendar += "<p class='dateTotalExpense'> - " + dateTotal + "</p>"
+          calendar += `<button class='date' onclick="hype_keepFL(${y}, ${m}, ${dNum})">` + dNum + `</button>`;
+          if (dateTotal) (dateTotal > 0) ? calendar += "<p class='dateTotalIncome'> + " + dateTotal + "</p>" : calendar += "<p class='dateTotalExpense'>" + dateTotal + "</p>"
           calendar += "</div>"
         }
         else {
           calendar += "<div class='aDay'>"
-          calendar += "<p class='date'>" + dNum + "</p>";
-          if (dateTotal) (dateTotal > 0) ? calendar += "<p class='dateTotalIncome'> + " + dateTotal + "</p>" : calendar += "<p class='dateTotalExpense'> - " + dateTotal + "</p>"
+          calendar += `<button class='date' onclick="hype_keepFL(${y}, ${m}, ${dNum})">` + dNum + `</button>`;
+          if (dateTotal) (dateTotal > 0) ? calendar += "<p class='dateTotalIncome'> + " + dateTotal + "</p>" : calendar += "<p class='dateTotalExpense'>" + dateTotal + "</p>"
           calendar += "</div>"
         }
         dNum++;
@@ -103,7 +105,31 @@ function printCalendar(y, m) {
   calendarBox.innerHTML = calendar;
 }
 
+function move_month(b) {
+  if (b === 0 && printM === 0) {
+    printY -= 1;
+    printM = 11;
+  }
+  else if (b === 1 && printM === 11) {
+    printY += 1;
+    printM = 0;
+  }
+
+  (b === 0) ? printM -= 1 : printM += 1
+  print_calendar();
+  print_month();
+}
+
+function hype_keepFL(y, m, d) {
+  m = String(m).padStart(2, '0');
+  d = String(d).padStart(2, '0');
+  date = `${y}-${m}-${d}`;
+
+  localStorage.setItem("date", JSON.stringify(date));
+  window.location.href = "keepFL.html";
+}
+
 window.onload = function () {
-  printCalendar();
-  printMonth();
+  print_calendar();
+  print_month();
 };
