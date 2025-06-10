@@ -1,25 +1,32 @@
+* {
+  color: rgb(223, 214, 174);
+  background-color: rgb(255, 101, 63);
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 250px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
 }
 
 a:link, a:visited {
-     background-color: #2dc21a;
-     color: rgb(255, 255, 255);
-     padding: 15px 25px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
 }
-
+/* 
 a:hover, a:active {
-     background-color: #07690c;
-}
+  background-color: #07690c;
+} */

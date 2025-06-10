@@ -38,8 +38,10 @@ function resister_account() {
 function display_accounts() {
   const content = document.getElementById("content");
 
+  content.innerHTML = "";
+
   if (accounts.length === 0) {
-    content.innerHTML += "<p>등록된 통장이 없습니다.</p>";
+    content.innerHTML += "<p class=\"none\">등록된 통장이 없습니다.</p>";
     return;
   }
 

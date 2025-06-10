@@ -3,12 +3,23 @@
 }
 
 body {
-  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(223, 214, 174);
 }
 
 header {
   display: flex;
+  width: 500px;
   justify-content: space-between;
+}
+
+header button{
+  font-size: 25px;
+  border: none;
+  background-color: rgb(223, 214, 174);
+  cursor: pointer;
 }
 
 /* 요일(smtwtfs) wrapper */
@@ -17,7 +28,7 @@ header {
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   max-width: 1200px;
-  gap:30px;
+  gap:20px;
   justify-items: center;
 }
 
@@ -25,10 +36,22 @@ header {
 .aDay {
   aspect-ratio: 1/1;
   border-radius: 10%;
-  width: 100%;
-  background-color: white;
+  width: 115px;
+  height: 115px;
+  background-color: rgb(230, 222, 187);
   max-width: 230px;
   padding: 10px;
+}
+
+.aDay button {
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(230, 222, 187);
+  margin-bottom: 40px;
+}
+
+.aDay button:hover {
+  background-color: rgb(156, 156, 156);
 }
 
 .date {
@@ -38,13 +61,13 @@ header {
 
 .dateTotalIncome {
   color: blue;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0px;
 }
 
 .dateTotalExpense {
   color: red;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0px;
 }
 

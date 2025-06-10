@@ -6,21 +6,26 @@
 }
 
 ul,ol{list-style:none}
-a{text-decoration:none;color:#000000;font-size:15px}
-
-/* padding 이나 margin 값은 따로 정해진 root 변수 값이 없다면 4의 배수로 값을 지정하는 것이 좋다고 한다! */
-body {padding: 0; margin: 0;}
+a{text-decoration:none;color: rgb(223, 214, 174);font-size:15px}
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  background-color: #b3ffb9;
-   margin-bottom: 50px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgb(255, 101, 63);
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
 }
 
-.menu {
+.home a{
+  font-size: 20px;
+}
+
+.menu, .home {
   display: flex;
-  gap: 10px;
+  gap: 30px;
+  padding: 0 32px;
 }

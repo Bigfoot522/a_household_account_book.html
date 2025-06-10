@@ -29,6 +29,8 @@
   <input type="hidden" id="Hnickname" value="">
   <input type="hidden" id="Hbalance" value="">
 
+  <h2>통장 목록</h2>
+  
   <header>
     <!-- action은 정보 전송할 위치 -->
     <form action="" class="resister">
@@ -57,13 +59,11 @@
         <label for="balance">잔고</label> <!--잔고 - bank account balance-->
         <input type="number" name="balance" id="balance" step="1000" placeholder="잔고를 입력하세요.">
       </div>
-    <button onclick="resister_account()">추가</button>
+    <button onclick="resister_account()">+</button>
     </form>
-
     <hr>
   </header>
 
-  <h2>통장 목록</h2>
   <div id="content"></div>
 
   <script src="resisterAccount.js"></script>

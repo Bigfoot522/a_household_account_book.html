@@ -1,0 +1,169 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2c3e50;
+  background-color: #ffe9e0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+header,
+.navbar {
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 24px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #ff8566;
+  border-radius: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: opacity 0.3s;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.resister {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #fff0eb;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 1000px;
+  margin-bottom: 24px;
+}
+
+.resisterElement {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.resisterElement label {
+  font-weight: bold;
+  color: #444;
+}
+
+.resister button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff8566;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.resister button:hover {
+  background-color: #ff6947;
+}
+
+#bank {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 150px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+#nickname,
+#balance {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 16px;
+  width: 200px;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.account {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  background-color: #f8d8ca;
+  padding: 12px;
+  color: #4b4b4b;
+}
+
+.account p {
+  color: #4b4b4b;
+  margin: 0;
+}
+
+.account button {
+  background: none;
+  border: none;
+  color: #4b4b4b;
+  font-size: 18px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.account button:hover {
+  opacity: 0.7;
+}
+
+.none {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 20px;
+  color: #555;
+}

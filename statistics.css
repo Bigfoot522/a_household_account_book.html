@@ -1,8 +1,12 @@
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  color: #2c3e50;
+  background-color: rgb(223, 214, 174);
+  height: 90vh;
 }
+
 
 .wrapper {
   display: flex;
@@ -11,6 +15,21 @@ body {
   justify-content: center;
   width: 100%;
   height: 80vh;
+}
+
+.button-wrapper {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+
+.button-wrapper button{
+  width: 100px;
+  height: 50px;
+  font-size: 30px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: rgb(230, 222, 187);
 }
 
 .month-bar {
@@ -51,7 +70,16 @@ body {
 #yearControl {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 50%;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+#yearControl button{
+  font-size: 25px;
+  border: none;
+  background-color: rgb(223, 214, 174);
+  cursor: pointer;
 }
 
 #chart {
